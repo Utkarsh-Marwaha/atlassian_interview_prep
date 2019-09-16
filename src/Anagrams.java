@@ -7,7 +7,7 @@ public class Anagrams {
      * @param input an array of strings
      * @return array of strings which features all strings barring the ones which are anagrams of the first element
      */
-    public static String[] funWithAnagrams(String[] input){
+    private static String[] funWithAnagrams(String[] input){
 
         if (input.length <=1 ){
             return input;
@@ -80,3 +80,6 @@ public class Anagrams {
         }
     }
 }
+
+// references
+// https://stackoverflow.com/questions/31583523/best-way-to-remove-null-values-from-string-array
