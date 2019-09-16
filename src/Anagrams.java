@@ -13,21 +13,33 @@ public class Anagrams {
             return input;
         }
 
-        // grab the first string in the array
-        String reference = input[0];
 
-        // cycle through all elements of the array starting from the second one
-        // and check if they are anagrams of the first element a.k.a the reference string
+        // set the reference string at the first element of the array
+        int ref = 0;
+        String reference= null;
 
-        for (int i = 1; i < input.length; i++){
-            if (areAnagram(reference, input[i])){
-                input[i] = null;
+        // scan through all elements to the right of the reference string and check if they are an anagram to the reference string
+        while (ref != input.length -1 ){
+
+            if (input[ref]!=null)
+                reference = input[ref];
+
+            for (int i = ref+1; i < input.length; i++){
+                if (input[i]!=null && areAnagram(reference, input[i])){
+                    input[i] = null;
+                }
             }
+            ref++;
         }
 
+
+        // remove the null values from the input array
         input = Arrays.stream(input)
                 .filter(s -> (s != null && s.length() > 0))
                 .toArray(String[]::new);
+
+        // sort the array in ascending order
+        Arrays.sort(input);
 
         return input;
     }
@@ -57,6 +69,14 @@ public class Anagrams {
 
     public static void main(String[] args) {
 
-    }
+//        String [] input = {"code", "doce", "ecod", "framer", "frame"};
 
+        String [] input = {"code", "aaagmnrs", "anagrams", "doce"};
+
+        input = funWithAnagrams(input);
+
+        for (String s: input){
+            System.out.println(s);
+        }
+    }
 }
