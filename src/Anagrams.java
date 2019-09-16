@@ -25,7 +25,7 @@ public class Anagrams {
                 reference = input[ref];
 
             for (int i = ref+1; i < input.length; i++){
-                if (input[i]!=null && areAnagram(reference, input[i])){
+                if (input[i]!=null && reference!=null && areAnagram(reference, input[i])){
                     input[i] = null;
                 }
             }
